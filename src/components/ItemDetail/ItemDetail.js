@@ -33,7 +33,7 @@ const ItemDetail = ( {item} ) => {
               </nav>            
             </div>
           </div>
-        
+          
         <div className="container-fluid mt-5">
 
             <div className="row g-9" data-sticky-container>

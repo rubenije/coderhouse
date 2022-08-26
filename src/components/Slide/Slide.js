@@ -1,4 +1,5 @@
 import { React } from 'react';
+import { Link } from 'react-router-dom';
 
 const Slide = () => (
     <div id="slideHome" className="carousel slide" data-bs-ride="carousel">
@@ -16,7 +17,7 @@ const Slide = () => (
                     <h2 className="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">
                     <span className="text-outline-light">Summer</span> Essentials</h2>
                     <div data-swiper-parallax-y="-25">
-                      <a href="./category.html" className="btn btn-psuedo text-white" role="button">Shop New Arrivals</a>
+                      <Link to="/" className="btn btn-psuedo text-white" role="button">Shop New Arrivals</Link>
                     </div>
                 </div>
             </div>
@@ -26,7 +27,7 @@ const Slide = () => (
                     <p className="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Spring Collection</p>
                     <h2 className="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Adidas <span className="text-outline-light">SS21</span></h2>
                     <div data-swiper-parallax-y="-25">
-                      <a href="./category.html" className="btn btn-psuedo text-white" role="button">Shop Latest Adidas</a>
+                      <Link to="/" className="btn btn-psuedo text-white" role="button">Shop Latest Adidas</Link>
                     </div>
                 </div>
             </div>
@@ -36,7 +37,7 @@ const Slide = () => (
                     <p className="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Just Do it</p>
                     <h2 className="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Nike <span className="text-outline-light">SS21</span></h2>
                     <div data-swiper-parallax-y="-25">
-                      <a href="./category.html" className="btn btn-psuedo text-white" role="button">Shop Latest Nike</a>
+                      <Link href="./category.html" className="btn btn-psuedo text-white" role="button">Shop Latest Nike</Link>
                     </div>
                 </div>
             </div>
@@ -47,7 +48,7 @@ const Slide = () => (
                     <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">
                       <span class="text-outline-light">Sustainable</span> Fashion</h2>
                     <div data-swiper-parallax-y="-25">
-                      <a href="./category.html" class="btn btn-psuedo text-white" role="button">Why We Are Different</a>
+                      <Link href="/" class="btn btn-psuedo text-white" role="button">Why We Are Different</Link>
                     </div>
                 </div>
             </div>

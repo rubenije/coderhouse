@@ -37,18 +37,18 @@ const Slide = () => (
                     <p className="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Just Do it</p>
                     <h2 className="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">Nike <span className="text-outline-light">SS21</span></h2>
                     <div data-swiper-parallax-y="-25">
-                      <Link href="./category.html" className="btn btn-psuedo text-white" role="button">Shop Latest Nike</Link>
+                      <Link to="/" className="btn btn-psuedo text-white" role="button">Shop Latest Nike</Link>
                     </div>
                 </div>
             </div>
             <div className="carousel-item">
                 <img src="/assets/images/banners/banner-4.jpg" className="d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
-                    <p class="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Look Good Feel Good</p>
-                    <h2 class="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">
-                      <span class="text-outline-light">Sustainable</span> Fashion</h2>
+                    <p className="title-small text-white opacity-75 mb-0" data-swiper-parallax="-100">Look Good Feel Good</p>
+                    <h2 className="display-3 tracking-wide fw-bold text-uppercase tracking-wide text-white" data-swiper-parallax="100">
+                      <span className="text-outline-light">Sustainable</span> Fashion</h2>
                     <div data-swiper-parallax-y="-25">
-                      <Link href="/" class="btn btn-psuedo text-white" role="button">Why We Are Different</Link>
+                      <Link to="/" className="btn btn-psuedo text-white" role="button">Why We Are Different</Link>
                     </div>
                 </div>
             </div>

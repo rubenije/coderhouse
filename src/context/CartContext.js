@@ -1,76 +1,49 @@
-import { createContext, useState } from "react";
+import { useState, createContext } from 'react';
 
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-    const [cartList, setCartList] = useState([]);
+  const [cart, setCart] = useState([]);
 
-    const addToCart = (item, qty) => {
-        let found = cartList.find(product => product.idItem === item.id);
-        if (found === undefined) {
-            setCartList([
-                ...cartList,
-                {
-                    idItem: item.id,
-                    imgItem: item.image[0],
-                    nameItem: item.name,
-                    costItem: item.cost,
-                    qtyItem: qty
-                }
-            ]);
+  const isInCart = (id) => {
+    const productInCart = cart.find((productInCart) => productInCart.id === id);
+    if (productInCart) return true;
+    return false;
+  };
+
+  const addToCart = (product) => {
+    if (isInCart(product.id)) {
+      const newCart = cart.map((productInCart) => {
+        if (productInCart.id === product.id) {
+          return {
+            ...productInCart,
+            count: productInCart.count + product.count,
+          };
         } else {
-            //al encontrarlo, entonces aumentamos el qty de ese producto
-            found.qtyItem += qty;
+          return productInCart;
         }
+      });
+      setCart(newCart);
+    } else {
+      setCart([...cart, product]);
     }
-    
-    const removeList = () => {
-        setCartList([]);
-    }
+  };
 
-    const deleteItem = (id) => {
-        let result = cartList.filter(item => item.idItem != id);
-        setCartList(result);
-    }
+  const removeFromCart = (id) => {
+    setCart(cart.filter((product) => product.id !== id));
+  };
 
-    const calcTotalPerItem = (idItem) => {
-        let index = cartList.map(item => item.idItem).indexOf(idItem);
-        return cartList[index].costItem * cartList[index].qtyItem;
-    }
+  const removeAll = () => {
+    setCart([]);
+  };
 
-    const calcSubTotal = () => {
-        let totalPerItem = cartList.map(item => calcTotalPerItem(item.idItem));
-        return totalPerItem.reduce((previousValue, currentValue) => previousValue + currentValue);
-    }
-
-    const calcTaxes = () => {
-        return calcSubTotal() * 0.18;
-    }
-
-    const calcTotal = () => {
-        return calcSubTotal();
-    }
-
-    const calcItemsQty = () => {
-        let qtys = cartList.map(item => item.qtyItem);
-        return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
-    }
-
-    return (
-        <CartContext.Provider value={{
-            cartList, 
-            addToCart, 
-            removeList, 
-            deleteItem, 
-            calcTotalPerItem, 
-            calcSubTotal, 
-            calcTaxes, 
-            calcTotal,
-            calcItemsQty
-        }}>
-            { children }
-        </CartContext.Provider>
-    );
-}
+  return (
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, removeAll, isInCart }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
 
 export default CartContextProvider;

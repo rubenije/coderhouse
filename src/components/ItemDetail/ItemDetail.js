@@ -2,17 +2,19 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
-const ItemDetail = ( {item} ) => {
+import ItemCount from '../ItemCount/ItemCount';
 
-  console.log(item);
+
+const ItemDetail = ( {item} ) => {
   
   const [itemCount, setItemCount] = useState(0);
   const test = useContext(CartContext);
 
-  const onAdd = (qty) => {
-    alert("You have selected " + qty + " items.");
-    setItemCount(qty);
-    test.addToCart(item, qty);
+  //const onAdd = (qty) => {
+const addItemCarro = (cantidad) => {
+    console.log('Producto agregado : ' + item.title + ' la cantidad de : ' + cantidad)
+    setItemCount(cantidad);
+    test.addToCart(item, cantidad);
   }
 
   return (
@@ -75,14 +77,9 @@ const ItemDetail = ( {item} ) => {
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="fs-4 m-0">${item.price}</p>
                             </div>
-                            <div className="border-top mt-4 mb-3 product-option">
-                                
-                                
-                            </div>
                             
-                            <button className="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow">Add To Shopping Bag</button>
-                        
-                        
+                            <ItemCount item={item} inicial={1} addItemCarro={addItemCarro}></ItemCount>
+                            
                                 <div className="my-5">
                                     <div className="row">
                                         <div className="col-12 col-md-4">

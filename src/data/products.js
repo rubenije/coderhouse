@@ -7,7 +7,7 @@ const products = [
        "price":549,
        "discountPercentage":12.96,
        "rating":4.69,
-       "stock":94,
+       "stock":5,
        "brand":"Apple",
        "category":"smartphones",
        "thumbnail":"/assets/images/products/product-1.jpg",

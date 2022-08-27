@@ -1,11 +1,14 @@
-import { React } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
+
+  const ctx = useContext(CartContext);
   
   return (
     <>
-      Bag (2)
+      Bag ({ctx.cartList.length})
     </>
   )
 

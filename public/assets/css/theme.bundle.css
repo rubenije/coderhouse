@@ -24601,7 +24601,9 @@ input:focus {
 .ri-indeterminate-circle-line:before {
     content: ""
 }
-
+#quantity{
+    text-align: center;
+}
 .ri-information-fill:before {
     content: ""
 }

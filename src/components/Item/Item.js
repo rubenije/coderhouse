@@ -32,20 +32,4 @@ const Item = ( { id, title, description, price, thumbnail, stock } ) => {
   )
 
 };
-
-/*
-
-<div className="col-6 col-md-4">
-  <div className="producto">
-    <div className="card text-center">
-      <img src={thumbnail} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <Link to={`/item/${id}` } title="{title}" className="btn btn-primary">Ver Detalle</Link>
-      </div>
-    </div>
-  </div>
-</div>
-
-*/
 export default Item;

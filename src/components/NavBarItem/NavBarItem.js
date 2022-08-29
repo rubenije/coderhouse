@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 
 const NavBarItem = ({elements}) => {
 
-  console.log(elements);
-  return (
+    
+    return (
     <>
         {
             elements.length > 0
             ? elements.map(item => 
-                <li className="nav-item">
-                    <Link className="nav-link" to="/category/2" role="button">{item.title}xxx</Link>
+                
+                <li key={item.id} className="nav-item">
+                    <Link className="nav-link" to={`/category/${item.categoria_id}`} role="button">{item.nombre}</Link>
                 </li>    
             )
             : ''

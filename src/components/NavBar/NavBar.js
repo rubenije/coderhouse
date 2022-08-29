@@ -19,20 +19,15 @@ const NavBar = () => {
           .catch(err => console.log(err));
   }, []);
 
-  
-    categorias.map(function(element){
-      console.log(element.id);
-    })
+console.log(categorias);
   
 
   //componentWillUnmount
-  /*
   useEffect(() => {
       return (() => {
         setCategoria([]);
       })
   }, []);
-  */
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-white flex-column border-0  ">

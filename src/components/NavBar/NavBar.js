@@ -1,14 +1,15 @@
 import React, { useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
-//import { getCategorias } from '../../data/firestoreFetch';
+import { getCategorias } from '../../data/firestoreFetch';
 
 
 
 /* Components */
 import CartWidget from '../CartWidget/CartWidget';
+import NavBarItem from '../NavBarItem/NavBarItem';
 
 const NavBar = () => {
-  /*
+  
   const [categorias, setCategoria] = useState([]);
 
   //componentDidUpdate
@@ -18,15 +19,19 @@ const NavBar = () => {
           .catch(err => console.log(err));
   }, []);
 
+  
+    categorias.map(function(element){
+      console.log(element.id);
+    })
+  
 
   //componentWillUnmount
+  /*
   useEffect(() => {
       return (() => {
         setCategoria([]);
       })
   }, []);
-  
-  console.log(categorias);
   */
   return (
     <>
@@ -57,9 +62,8 @@ const NavBar = () => {
                   <li className="nav-item">
                     <Link className="nav-link" to="/" role="button">HOME</Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/category/1" role="button">smartphones</Link>
-                  </li>
+                  <NavBarItem elements={categorias}></NavBarItem>
+                  { /*
                   <li className="nav-item">
                     <Link className="nav-link" to="/category/2" role="button">laptops</Link>
                   </li>
@@ -72,6 +76,7 @@ const NavBar = () => {
                   <li className="nav-item">
                     <Link className="nav-link" to="/category/5" role="button">groceries</Link>
                   </li>
+                  */}
                 </ul>                    
               </div>
             </div>

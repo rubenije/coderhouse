@@ -49,13 +49,12 @@ export const getSlides = async () => {
 
 export const getCategorias = async () => {
     let q;
-    q = query(collection(db, "categorias", where('estado', '==', 'A'), orderBy("orden", "asc")));
-    
+    //q = query(collection(db, "categorias", where('estado', '==', 'A'), orderBy("orden", "asc")));
+    q = query(collection(db, "categorias"), where('estado', '==', 'A'), orderBy('orden'));
     const querySnapshot = await getDocs(q);
     const dataFromFirestore = querySnapshot.docs.map(document => ({
         id: document.id,
         ...document.data()
     }));
-    console.log(dataFromFirestore);
     return dataFromFirestore;
 }

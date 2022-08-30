@@ -1,4 +1,4 @@
-import customFetch from '../../data/customFetch';
+//import customFetch from '../../data/customFetch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,35 +9,21 @@ import Filter from '../Filter/Filter';
 import ItemList from '../ItemList/ItemList';
 
 /* Datos */
-const { products } = require('../../data/products');
+//const { products } = require('../../data/products');
+import { firestoreFetch } from '../../data/firestoreFetch';
 
 const ItemListContainer = () => {
   
     const [datos, setDatos] = useState([]);
     const { idCategory } = useParams();
 
-
+     //componentDidUpdate
     useEffect(() => {
-        customFetch(2000, products.filter(item => {
-            if (idCategory === undefined) return item;
-            return item.categoria === parseInt(idCategory)
-        }))
+        firestoreFetch(idCategory)
             .then(result => setDatos(result))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     }, [datos]);
 
-
-    //componentDidUpdate
-    /*
-    useEffect(() => {
-        customFetch(2000, products.filter(item => {
-            if (idCategory === undefined) return item;
-            return item.categoria === parseInt(idCategory)
-        }))
-            .then(result => setDatos(result))
-            .catch(err => console.log(err))
-    }, [datos]);
-    */
     //componentWillUnmount
     useEffect(() => {
         return (() => {

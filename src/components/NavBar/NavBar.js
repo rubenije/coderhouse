@@ -19,9 +19,6 @@ const NavBar = () => {
           .catch(err => console.log(err));
   }, []);
 
-console.log(categorias);
-  
-
   //componentWillUnmount
   useEffect(() => {
       return (() => {

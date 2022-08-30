@@ -7,10 +7,12 @@ import SlideListContainer from '../SlideListContainer/SlideListContainer';
 import Header from '../Header/Header';
 import Filter from '../Filter/Filter';
 import ItemList from '../ItemList/ItemList';
+import Spinner from '../Spinner/Spinner';
 
 /* Datos */
 //const { products } = require('../../data/products');
 import { firestoreFetch } from '../../data/firestoreFetch';
+import { prettyDOM } from '@testing-library/react';
 
 const ItemListContainer = () => {
   
@@ -24,6 +26,8 @@ const ItemListContainer = () => {
             .catch(err => console.log(err));
     }, [datos]);
 
+    console.log(datos);
+
     //componentWillUnmount
     useEffect(() => {
         return (() => {
@@ -35,9 +39,13 @@ const ItemListContainer = () => {
         <>
             { idCategory === undefined ? <SlideListContainer/> : <Header/> }
             
-            <Filter idCategory={idCategory}></Filter>
-            <ItemList items={datos}></ItemList>
-        </>
+            { /* <Filter idCategory={idCategory}></Filter> */ }
+            {datos.length > 0 
+                ?  <ItemList items={datos}></ItemList>
+                : ''
+
+            } 
+            </>
     )
 };
 export default ItemListContainer;

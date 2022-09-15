@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { Link } from 'react-router-dom';
 
-const Item = ( { id, title, description, price, thumbnail, stock } ) => {
+const Item = ( { id, title, description, price, thumbnail, stock, category } ) => {
   
   return (
     <>
@@ -21,7 +21,7 @@ const Item = ( { id, title, description, price, thumbnail, stock } ) => {
               </div>
               <div className="card-body px-0">
                   <Link to={`/item/${id}`} className="text-decoration-none link-cover">{title}</Link>
-                  <small className="text-muted d-block">3 colours, 10 sizes</small>
+                  <small className="text-muted d-block">{category}</small>
                           <p className="mt-2 mb-0 small">${price}</p>
               </div>
           </div>

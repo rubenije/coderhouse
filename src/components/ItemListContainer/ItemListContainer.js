@@ -26,8 +26,6 @@ const ItemListContainer = () => {
             .catch(err => console.log(err));
     }, [datos]);
 
-    console.log(datos);
-
     //componentWillUnmount
     useEffect(() => {
         return (() => {
@@ -39,10 +37,9 @@ const ItemListContainer = () => {
         <>
             { idCategory === undefined ? <SlideListContainer/> : <Header/> }
             
-            { /* <Filter idCategory={idCategory}></Filter> */ }
             {datos.length > 0 
                 ?  <ItemList items={datos}></ItemList>
-                : ''
+                : <Spinner></Spinner>
 
             } 
             </>

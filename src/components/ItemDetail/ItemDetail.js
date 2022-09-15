@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
 import ItemCount from '../ItemCount/ItemCount';
+import GalleryList from '../GalleryList/GalleryList';
 
 
 const ItemDetail = ( {item} ) => {
@@ -10,6 +11,7 @@ const ItemDetail = ( {item} ) => {
   const [itemCount, setItemCount] = useState(0);
   const test = useContext(CartContext);
 
+  //console.log(item);
   //const onAdd = (qty) => {
 const addItemCarro = (cantidad) => {
     console.log('Producto agregado : ' + item.title + ' la cantidad de : ' + cantidad)
@@ -28,7 +30,7 @@ const addItemCarro = (cantidad) => {
               <nav className="m-0" aria-label="breadcrumb">
                   <ol className="breadcrumb m-0">
                     <li className="breadcrumb-item breadcrumb-light"><Link to="/">Home</Link></li>
-                    <li className="breadcrumb-item breadcrumb-light"><Link to={`/item/${item.id}`}>{item.category}</Link></li>
+                    <li className="breadcrumb-item breadcrumb-light"><Link to={`/category/${item.categoria}`}>{item.category}</Link></li>
                     <li className="breadcrumb-item  breadcrumb-light active" aria-current="page">{item.title}</li>
                   </ol>
               </nav>            
@@ -41,26 +43,7 @@ const addItemCarro = (cantidad) => {
 
                 <div className="col-12 col-md-6 col-xl-7">
                     <div className="row g-3" data-aos="fade-right">
-                        <div className="col-12">
-                            <picture>
-                                <img className="img-fluid" data-zoomable src="/assets/images/products/product-page-1.jpeg" alt="HTML Bootstrap Template by Pixel Rocket" />
-                            </picture>
-                        </div>
-                        <div className="col-12">
-                            <picture>
-                                <img className="img-fluid" data-zoomable src="/assets/images/products/product-page-2.jpeg" alt="HTML Bootstrap Template by Pixel Rocket" />
-                            </picture>
-                        </div>
-                        <div className="col-12">
-                            <picture>
-                                <img className="img-fluid" data-zoomable src="/assets/images/products/product-page-3.jpeg" alt="HTML Bootstrap Template by Pixel Rocket" />
-                            </picture>
-                        </div>
-                        <div className="col-12">
-                            <picture>
-                                <img className="img-fluid" data-zoomable src="/assets/images/products/product-page-4.jpeg" alt="HTML Bootstrap Template by Pixel Rocket" />
-                            </picture>
-                        </div>
+                      <GalleryList elements={item.images}></GalleryList>
                     </div>
                 </div>
                 
@@ -112,7 +95,7 @@ const addItemCarro = (cantidad) => {
                                   </h2>
                                   <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionProduct">
                                     <div className="accordion-body">
-                                        <p className="m-0">Made from 100% organic cotton, The Kiikii Osaka Japan T-Shirt was created with everyday use in mind. It features printed graphics and heavyweight fabric for maximum comfort and lifespan.</p>
+                                        <p className="m-0">{item.description}</p>
                                     </div>
                                   </div>
                                 </div>

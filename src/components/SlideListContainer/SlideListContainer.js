@@ -44,6 +44,7 @@ const SlideListContainer = () => {
                     <span className="visually-hidden">Siguiente</span>
                 </button>
             </div>
+            <br/>
         </>
     )
 };

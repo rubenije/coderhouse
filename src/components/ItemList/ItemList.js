@@ -11,7 +11,7 @@ const ItemList = ( { items } ) => {
         <div className="row">
         {
             items.length > 0
-            ? items.map(item => <Item key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} thumbnail={item.thumbnail} stock={item.stock} />)
+            ? items.map(item => <Item key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} thumbnail={item.thumbnail} stock={item.stock} category={item.category} />)
             : <Spinner></Spinner>
         }
         </div>

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
+import FormatNumber from '../../utils/FormatNumber';
 
 const Cart = () => {
   
@@ -18,7 +19,7 @@ const Cart = () => {
             <div className="container">
                 <div className="row g-0 vh-lg-100">
                     
-                    
+                
                     
                     <div className="col-12 col-lg-7 pt-5 pt-lg-10">
                         <div className="pe-lg-5">
@@ -39,6 +40,13 @@ const Cart = () => {
                                 <h3 className="fs-5 fw-bolder mb-0 border-bottom pb-4">Your Cart</h3>
                                 <div className="table-responsive">
                                     <div className="table align-middle">
+
+                                    {
+                                        (ctx.cartList.length > 0)
+                                        ? <button className="btn btn-dark text-center" onClick={ctx.removeList}  role="button">DELETE ALL PRODUCTS</button> 
+                                        : ''
+                                    }
+                                    
                                     {
                                     ctx.cartList.length > 0 &&
                                         ctx.cartList.map(item => 
@@ -57,7 +65,7 @@ const Cart = () => {
                                                         </h6>
                                                         <span className="d-block text-muted fw-bolder text-uppercase fs-9">Qty: {item.qtyItem}</span>
                                                     </div>
-                                                    <p className="fw-bolder text-end text-muted m-0">${item.priceItem}</p>
+                                                    <p className="fw-bolder text-end text-muted m-0"><FormatNumber number={item.priceItem} /></p>
                                                 </div>
                                             </div>                                        
                                                                                  
@@ -66,6 +74,7 @@ const Cart = () => {
                                     }
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -78,18 +87,13 @@ const Cart = () => {
                                 <div className="d-flex flex-column flex-md-row justify-content-md-between mb-4 mb-md-2">
                                     <div>
                                         <p className="m-0 fw-bold fs-5">Grand Total</p>
-                                        <span className="text-muted small">Inc $45.89 sales tax</span>
+                                        { /* <span className="text-muted small">Inc $45.89 sales tax</span> */}
                                     </div>
-                                    <p className="m-0 fs-5 fw-bold">$422.99</p>
+                                    <p className="m-0 fs-5 fw-bold"><FormatNumber number={ctx.calcTotal()} /></p>
                                 </div>
                             </div>
-                            <div className="py-4">
-                                <div className="input-group mb-0">
-                                    <input type="text" className="form-control" placeholder="Enter coupon code" />
-                                    <button className="btn btn-secondary btn-sm px-4">Apply</button>
-                                </div>
-                            </div>
-                            <Link to="/checkout" className="btn btn-dark w-100 text-center" role="button">Proceed to checkout</Link>                    
+                            <Link to="/checkout" className="btn btn-dark w-100 text-center" role="button">Proceed to checkout</Link> 
+                            
                         </div>
                     </div>
 

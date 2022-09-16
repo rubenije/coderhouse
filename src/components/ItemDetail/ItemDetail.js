@@ -4,19 +4,17 @@ import { CartContext } from '../../context/CartContext';
 
 import ItemCount from '../ItemCount/ItemCount';
 import GalleryList from '../GalleryList/GalleryList';
+import FormatNumber from '../../utils/FormatNumber';
 
 
 const ItemDetail = ( {item} ) => {
   
   const [itemCount, setItemCount] = useState(0);
-  const test = useContext(CartContext);
+  const ctx = useContext(CartContext);
 
-  //console.log(item);
-  //const onAdd = (qty) => {
-const addItemCarro = (cantidad) => {
-    console.log('Producto agregado : ' + item.title + ' la cantidad de : ' + cantidad)
+  const addItemCarro = (cantidad) => {
     setItemCount(cantidad);
-    test.addToCart(item, cantidad);
+    ctx.addToCart(item, cantidad);
   }
 
   return (
@@ -58,7 +56,7 @@ const addItemCarro = (cantidad) => {
                             
                             <h1 className="mb-1 fs-2 fw-bold">{item.title}</h1>
                             <div className="d-flex justify-content-between align-items-center">
-                                <p className="fs-4 m-0">${item.price}</p>
+                                <p className="fs-4 m-0"><FormatNumber number={item.price} /></p>
                             </div>
                             
                             <ItemCount item={item} inicial={1} addItemCarro={addItemCarro}></ItemCount>

@@ -5,13 +5,12 @@ import Spinner from '../Spinner/Spinner';
 
 const GalleryList = ({elements}) => {
   
-    console.log('GalleryList : ', elements);
     return (
       <>
         {
             elements.length > 0 ?
                 elements.map((element, index) => {
-                    return <GalleryImage image={element}  />
+                    return <GalleryImage key={index} image={element}  />
                 })
             : <Spinner></Spinner>
         }

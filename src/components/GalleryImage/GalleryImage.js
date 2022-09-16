@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 const GalleryImage = ( { image } ) => {
  
-  console.log(image);
   return (
     <>
         <div className="col-12">
